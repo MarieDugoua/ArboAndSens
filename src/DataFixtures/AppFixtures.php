@@ -3,11 +3,11 @@
 namespace App\DataFixtures;
 
 use App\Entity\Category;
+use App\Entity\Image;
 use App\Entity\Product;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
-use App\Entity\Image;
 
 class AppFixtures extends Fixture
 {
@@ -15,31 +15,25 @@ class AppFixtures extends Fixture
     {
         $faker = Factory::create('fr_FR');
 
-        $allCategory = array();
-        foreach (array("petit", "grand") as &$val) {
-            $category = new Category();
-            $category->setTitle($val);
-            array_push($allCategory, $category);
-            $manager->persist($category);
-        }
+        $categoryP = new Category();
+        $categoryP->setTitle("petit");
+        $manager->persist($categoryP);
 
-        $allProduct = array();
-        foreach (array("chaise", "table", "tabouret", "banc", "table de chevet", "dressing", "bibliothèque", "bureau", "étagère") as &$val) {
-            $OneProduct = new Product();
-            $OneProduct->setName($val);
-            array_push($allProduct, $OneProduct);
-            $manager->persist($OneProduct);
-        }
-dump($val);
+        $categoryG = new Category();
+        $categoryG->setTitle("grand");
+        $manager->persist($categoryG);
+
         for ($i = 1; $i <= 50; $i++) {
-            $categoryIndex = rand(0, sizeof($allCategory) - 1);
-            $category = $allCategory[$categoryIndex];
 
             $product = new Product();
-            $product->setCategory( $category)
-                ->setName($OneProduct)
-                ->setDescription($faker -> sentence($nbWords = 6, $variableNbWords = true))
-                ->setPrice($faker -> randomFloat($nbMaxDecimals = NULL, $min = 50, $max = NULL));
+            $product->setCategory($faker->randomElement($array = array($categoryP, $categoryG)))
+                    ->setName($faker->randomElement($array = array("chaise", "table", "tabouret", "banc", "table de chevet", "dressing", "bibliothèque", "bureau", "étagère")))
+                    ->setDescription($faker->sentence($nbWords = 150, $variableNbWords = true))
+                    ->setPrice($faker->randomFloat($nbMaxDecimals = NULL, $min = 50, $max = NULL));
+
+            $image = new Image();
+            $image->setProduct($product)
+                  ->setName($faker->imageUrl($width=300, $height=300, 'cats'));
 
             $manager->persist($product);
         }
