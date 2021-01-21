@@ -2,9 +2,11 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Admin;
 use App\Entity\Category;
 use App\Entity\Image;
 use App\Entity\Product;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
@@ -37,6 +39,14 @@ class AppFixtures extends Fixture
 
             $manager->persist($product);
         }
+        $user = new User();
+        $user->setRoles(['ROLE_ADMIN'])
+            ->setEmail('admin@lea.fr')
+            ->setPassword('admin')
+            ->setFirstname('admin')
+            ->setLastname('lea')
+            ->setBirthdate('2016-01-01 00:00:00');
+        $manager->persist($user);
 
 
         $manager->flush();
