@@ -27,7 +27,7 @@ class ProductFormType extends AbstractType
                 'choice_label' => 'title',
                 "attr" => ["class" => "form-control"]])
       //      ->add('orderHistories')
-            ->add("submit", SubmitType::class, [
+            ->add("Envoyer", SubmitType::class, [
                 "attr" => ["class" => "btn btn-primary mt-2"]])
             ->getForm();
         ;

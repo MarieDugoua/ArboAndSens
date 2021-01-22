@@ -20,14 +20,23 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="/products">Les produits<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/addProduct">Ajouter un produit</a>
-                </li>
+                {% if is_granted('ROLE_ADMIN') -%}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/addProduct">Ajouter un produit</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/members">Les membres</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/addMember">Ajouter un membre</a>
+                    </li>
+                {% endif %}
             </ul>
             {% if is_granted('IS_AUTHENTICATED_FULLY') -%}
                 <form class="form-inline my-2 my-lg-0">
                     <a class="btn btn-outline-danger m-2 my-sm-0" type="submit" href="/logout">Disconnection</a>
                 </form>
+
             {% else %}
                 <form class="form-inline my-2 my-lg-0">
                     <a class="btn btn-outline-success m-2 my-sm-0" type="submit" href="/login">Login</a>

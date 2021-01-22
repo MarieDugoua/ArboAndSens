@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            {% for usr in user %}
+                <div class="col-md-4 mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ usr.firstname }}</h5>
+                            <p class="card-text">{{ usr.lastname }}</p>
+                            <p class="card-text">{{ usr.email }}</p>
+                            <div class="d-flex flex-row-reverse bd-highlight">
+                                <div class="p-2 bd-highlight">
+                                    <a href="/members/{{usr.id}}" class="btn btn-outline-primary mx-auto">Allez sur le membre</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {{ knp_pagination_render(user) }}
+    </div>
+{% endblock %}

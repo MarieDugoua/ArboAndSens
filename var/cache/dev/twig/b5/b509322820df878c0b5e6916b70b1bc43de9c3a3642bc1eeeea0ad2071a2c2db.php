@@ -62,11 +62,11 @@ class __TwigTemplate_62a3b1eea647bc92671da810c58a3b7008ab0c203b17b3434e297f58335
 ";
         // line 11
         $this->displayBlock('header', $context, $blocks);
-        // line 41
+        // line 50
         $this->displayBlock('body', $context, $blocks);
-        // line 42
+        // line 51
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 46
+        // line 55
         echo "</body>
 </html>
 
@@ -141,27 +141,41 @@ class __TwigTemplate_62a3b1eea647bc92671da810c58a3b7008ab0c203b17b3434e297f58335
                 <li class=\"nav-item active\">
                     <a class=\"nav-link\" href=\"/products\">Les produits<span class=\"sr-only\">(current)</span></a>
                 </li>
-                <li class=\"nav-item active\">
-                    <a class=\"nav-link\" href=\"/addProduct\">Ajouter un produit</a>
-                </li>
-            </ul>
+                ";
+        // line 23
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
+            // line 24
+            echo "<li class=\"nav-item active\">
+                        <a class=\"nav-link\" href=\"/addProduct\">Ajouter un produit</a>
+                    </li>
+                    <li class=\"nav-item active\">
+                        <a class=\"nav-link\" href=\"/members\">Les membres</a>
+                    </li>
+                    <li class=\"nav-item active\">
+                        <a class=\"nav-link\" href=\"/addMember\">Ajouter un membre</a>
+                    </li>
+                ";
+        }
+        // line 34
+        echo "            </ul>
             ";
-        // line 27
+        // line 35
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
-            // line 28
+            // line 36
             echo "<form class=\"form-inline my-2 my-lg-0\">
                     <a class=\"btn btn-outline-danger m-2 my-sm-0\" type=\"submit\" href=\"/logout\">Disconnection</a>
                 </form>
+
             ";
         } else {
-            // line 32
+            // line 41
             echo "                <form class=\"form-inline my-2 my-lg-0\">
                     <a class=\"btn btn-outline-success m-2 my-sm-0\" type=\"submit\" href=\"/login\">Login</a>
                     <a class=\"btn btn-outline-success m-2 my-sm-0\" type=\"submit\" href=\"/registration\">Sign up</a>
                 </form>
             ";
         }
-        // line 37
+        // line 46
         echo "
         </div>
     </nav>
@@ -174,7 +188,7 @@ class __TwigTemplate_62a3b1eea647bc92671da810c58a3b7008ab0c203b17b3434e297f58335
 
     }
 
-    // line 41
+    // line 50
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -192,7 +206,7 @@ class __TwigTemplate_62a3b1eea647bc92671da810c58a3b7008ab0c203b17b3434e297f58335
 
     }
 
-    // line 42
+    // line 51
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -202,7 +216,7 @@ class __TwigTemplate_62a3b1eea647bc92671da810c58a3b7008ab0c203b17b3434e297f58335
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 43
+        // line 52
         echo "    <script src=\"https://code.jquery.com/jquery-3.5.1.slim.min.js\" integrity=\"sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj\" crossorigin=\"anonymous\"></script>
     <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx\" crossorigin=\"anonymous\"></script>
 ";
@@ -221,7 +235,7 @@ class __TwigTemplate_62a3b1eea647bc92671da810c58a3b7008ab0c203b17b3434e297f58335
 
     public function getDebugInfo()
     {
-        return array (  206 => 43,  196 => 42,  178 => 41,  165 => 37,  158 => 32,  152 => 28,  150 => 27,  133 => 12,  123 => 11,  112 => 7,  102 => 6,  83 => 5,  70 => 46,  68 => 42,  66 => 41,  64 => 11,  60 => 9,  58 => 6,  54 => 5,  48 => 1,);
+        return array (  220 => 52,  210 => 51,  192 => 50,  179 => 46,  172 => 41,  165 => 36,  163 => 35,  160 => 34,  148 => 24,  146 => 23,  133 => 12,  123 => 11,  112 => 7,  102 => 6,  83 => 5,  70 => 55,  68 => 51,  66 => 50,  64 => 11,  60 => 9,  58 => 6,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -248,14 +262,23 @@ class __TwigTemplate_62a3b1eea647bc92671da810c58a3b7008ab0c203b17b3434e297f58335
                 <li class=\"nav-item active\">
                     <a class=\"nav-link\" href=\"/products\">Les produits<span class=\"sr-only\">(current)</span></a>
                 </li>
-                <li class=\"nav-item active\">
-                    <a class=\"nav-link\" href=\"/addProduct\">Ajouter un produit</a>
-                </li>
+                {% if is_granted('ROLE_ADMIN') -%}
+                    <li class=\"nav-item active\">
+                        <a class=\"nav-link\" href=\"/addProduct\">Ajouter un produit</a>
+                    </li>
+                    <li class=\"nav-item active\">
+                        <a class=\"nav-link\" href=\"/members\">Les membres</a>
+                    </li>
+                    <li class=\"nav-item active\">
+                        <a class=\"nav-link\" href=\"/addMember\">Ajouter un membre</a>
+                    </li>
+                {% endif %}
             </ul>
             {% if is_granted('IS_AUTHENTICATED_FULLY') -%}
                 <form class=\"form-inline my-2 my-lg-0\">
                     <a class=\"btn btn-outline-danger m-2 my-sm-0\" type=\"submit\" href=\"/logout\">Disconnection</a>
                 </form>
+
             {% else %}
                 <form class=\"form-inline my-2 my-lg-0\">
                     <a class=\"btn btn-outline-success m-2 my-sm-0\" type=\"submit\" href=\"/login\">Login</a>

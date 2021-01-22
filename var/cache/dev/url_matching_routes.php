@@ -16,6 +16,8 @@ return [
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
         '/products' => [[['_route' => 'products', '_controller' => 'App\\Controller\\HomeController::products'], null, null, null, false, false, null]],
         '/addProduct' => [[['_route' => 'addProduct', '_controller' => 'App\\Controller\\HomeController::add'], null, null, null, false, false, null]],
+        '/members' => [[['_route' => 'members', '_controller' => 'App\\Controller\\HomeController::members'], null, null, null, false, false, null]],
+        '/addMember' => [[['_route' => 'addMember', '_controller' => 'App\\Controller\\HomeController::addMember'], null, null, null, false, false, null]],
         '/registration' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\RegistrationController::register'], null, null, null, false, false, null]],
         '/security' => [[['_route' => 'security', '_controller' => 'App\\Controller\\SecurityController::index'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
@@ -49,6 +51,13 @@ return [
                         .'|delete(*:221)'
                     .')'
                 .')'
+                .'|/member(?'
+                    .'|s/([^/]++)(*:251)'
+                    .'|/([^/]++)/(?'
+                        .'|update(*:278)'
+                        .'|delete(*:292)'
+                    .')'
+                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -61,8 +70,11 @@ return [
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         189 => [[['_route' => 'product', '_controller' => 'App\\Controller\\HomeController::pdt'], ['id'], null, null, false, true, null]],
         207 => [[['_route' => 'updateProduct', '_controller' => 'App\\Controller\\HomeController::edit'], ['id'], null, null, false, false, null]],
-        221 => [
-            [['_route' => 'deleteProduct', '_controller' => 'App\\Controller\\HomeController::delete'], ['id'], null, null, false, false, null],
+        221 => [[['_route' => 'deleteProduct', '_controller' => 'App\\Controller\\HomeController::delete'], ['id'], null, null, false, false, null]],
+        251 => [[['_route' => 'member', '_controller' => 'App\\Controller\\HomeController::user'], ['id'], null, null, false, true, null]],
+        278 => [[['_route' => 'updateMember', '_controller' => 'App\\Controller\\HomeController::editMember'], ['id'], null, null, false, false, null]],
+        292 => [
+            [['_route' => 'deleteMember', '_controller' => 'App\\Controller\\HomeController::deleteMember'], ['id'], null, null, false, false, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

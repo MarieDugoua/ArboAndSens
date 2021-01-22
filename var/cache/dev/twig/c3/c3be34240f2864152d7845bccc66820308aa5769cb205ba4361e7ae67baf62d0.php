@@ -90,24 +90,20 @@ class __TwigTemplate_60bc42f249f5190688ec38c967cb9a96c462ba3a0f30217a68efb835678
 
                     <div class=\"d-flex flex-row-reverse bd-highlight\">
                         <div class=\"p-2 bd-highlight\">
-                            <a href=\"#/";
-        // line 16
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["product"]) || array_key_exists("product", $context) ? $context["product"] : (function () { throw new RuntimeError('Variable "product" does not exist.', 16, $this->source); })()), "id", [], "any", false, false, false, 16), "html", null, true);
-        echo "\" class=\"btn btn-outline-primary mx-auto\">Ajouter</a>
                             ";
-        // line 17
+        // line 16
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_USER")) {
-            // line 18
+            // line 17
             echo "                                <a href=\"/product/";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["product"]) || array_key_exists("product", $context) ? $context["product"] : (function () { throw new RuntimeError('Variable "product" does not exist.', 18, $this->source); })()), "id", [], "any", false, false, false, 18), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["product"]) || array_key_exists("product", $context) ? $context["product"] : (function () { throw new RuntimeError('Variable "product" does not exist.', 17, $this->source); })()), "id", [], "any", false, false, false, 17), "html", null, true);
             echo "/update\" class=\"btn btn-outline-primary mx-auto\">Modifier</a>
                                 <a href=\"/product/";
-            // line 19
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["product"]) || array_key_exists("product", $context) ? $context["product"] : (function () { throw new RuntimeError('Variable "product" does not exist.', 19, $this->source); })()), "id", [], "any", false, false, false, 19), "html", null, true);
+            // line 18
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["product"]) || array_key_exists("product", $context) ? $context["product"] : (function () { throw new RuntimeError('Variable "product" does not exist.', 18, $this->source); })()), "id", [], "any", false, false, false, 18), "html", null, true);
             echo "/delete\" class=\"btn btn-outline-danger mx-auto\">Supprimer</a>
                             ";
         }
-        // line 21
+        // line 20
         echo "                        </div>
                     </div>
                 </div>
@@ -135,7 +131,7 @@ class __TwigTemplate_60bc42f249f5190688ec38c967cb9a96c462ba3a0f30217a68efb835678
 
     public function getDebugInfo()
     {
-        return array (  111 => 21,  106 => 19,  101 => 18,  99 => 17,  95 => 16,  88 => 12,  84 => 11,  80 => 10,  74 => 6,  71 => 5,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  107 => 20,  102 => 18,  97 => 17,  95 => 16,  88 => 12,  84 => 11,  80 => 10,  74 => 6,  71 => 5,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -155,7 +151,6 @@ class __TwigTemplate_60bc42f249f5190688ec38c967cb9a96c462ba3a0f30217a68efb835678
 
                     <div class=\"d-flex flex-row-reverse bd-highlight\">
                         <div class=\"p-2 bd-highlight\">
-                            <a href=\"#/{{product.id}}\" class=\"btn btn-outline-primary mx-auto\">Ajouter</a>
                             {% if is_granted('ROLE_USER') %}
                                 <a href=\"/product/{{product.id}}/update\" class=\"btn btn-outline-primary mx-auto\">Modifier</a>
                                 <a href=\"/product/{{product.id}}/delete\" class=\"btn btn-outline-danger mx-auto\">Supprimer</a>

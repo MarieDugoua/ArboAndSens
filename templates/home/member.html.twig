@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% set id = app.request.get('id') %}
+    {% set titleType = app.request.get('titleType') %}
+
+    <div class="container" style="justify-content: center">
+        <div class="col-md-4 mx-auto mt-5" >
+            <div class="card" >
+                <div class="card-body">
+                    <h5 class="card-title">{{ user.firstname }}</h5>
+                    <p class="card-text">{{ user.lastname }}</p>
+                    <p class="card-text">{{ user.email }}</p>
+                    <p class="card-text">Birthdate : {{ user.birthdate | date("d/m/y") }}</p>
+
+                    <div class="d-flex flex-row-reverse bd-highlight">
+                        <div class="p-2 bd-highlight">
+                            {% if is_granted('ROLE_USER') %}
+                                <a href="/member/{{user.id}}/update" class="btn btn-outline-primary mx-auto">Modifier</a>
+                                <a href="/member/{{user.id}}/delete" class="btn btn-outline-danger mx-auto">Supprimer</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
