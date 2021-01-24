@@ -49,5 +49,5 @@ security:
     access_control:
         - { path: ^/addProduct, roles: ROLE_ADMIN}
         - { path: ^/updateProduct, roles: ROLE_ADMIN}
-          # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/profile, roles: ROLE_USER }

@@ -41,7 +41,7 @@ class HomeController extends AbstractController
      * @Route("/product/{id}", name="product")
      * @param Product $product
      */
-    public function pdt(Product $product)
+    public function product(Product $product)
     {
         return $this->render('home/product.html.twig', [
             'product' => $product,

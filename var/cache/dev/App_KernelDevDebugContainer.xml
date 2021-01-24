@@ -4117,6 +4117,20 @@
         </argument>
         <argument>null</argument>
       </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.5dJADCx"/>
+        <argument type="collection">
+          <argument>ROLE_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.Pn7yvdV"/>
+        <argument type="collection">
+          <argument>ROLE_USER</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
     </service>
     <service id="security.context_listener" class="Symfony\Component\Security\Http\Firewall\ContextListener">
       <tag name="monolog.logger" channel="security"/>
@@ -4564,6 +4578,12 @@
     </service>
     <service id=".security.request_matcher.6pLHUoz" class="Symfony\Component\HttpFoundation\RequestMatcher">
       <argument>^/updateProduct</argument>
+    </service>
+    <service id=".security.request_matcher.5dJADCx" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/admin</argument>
+    </service>
+    <service id=".security.request_matcher.Pn7yvdV" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/profile</argument>
     </service>
     <service id="security.command.user_password_encoder" class="Symfony\Bundle\SecurityBundle\Command\UserPasswordEncoderCommand">
       <tag name="console.command" command="security:encode-password"/>
@@ -5678,14 +5698,14 @@
         <argument key="manager" type="service" id=".errored..service_locator.fV_Pg_z.Doctrine\Persistence\ObjectManager"/>
       </argument>
     </service>
-    <service id=".service_locator.fdPDa8r" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.cFiblNs" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\HomeController::add" type="service" id=".service_locator.l2QwsaZ"/>
         <argument key="App\Controller\HomeController::delete" type="service" id=".service_locator.iyEwlLH"/>
         <argument key="App\Controller\HomeController::edit" type="service" id=".service_locator.0n6uXa."/>
         <argument key="App\Controller\HomeController::index" type="service" id=".service_locator.JeTwYn4"/>
-        <argument key="App\Controller\HomeController::pdt" type="service" id=".service_locator.iyEwlLH"/>
+        <argument key="App\Controller\HomeController::product" type="service" id=".service_locator.iyEwlLH"/>
         <argument key="App\Controller\HomeController::products" type="service" id=".service_locator.JeTwYn4"/>
         <argument key="App\Controller\RegistrationController::register" type="service" id=".service_locator.YT8XVZ7"/>
         <argument key="App\Controller\SecurityController::login" type="service" id=".service_locator.UDgw6Ol"/>
@@ -5700,7 +5720,7 @@
         <argument key="App\Controller\HomeController:delete" type="service" id=".service_locator.iyEwlLH"/>
         <argument key="App\Controller\HomeController:edit" type="service" id=".service_locator.0n6uXa."/>
         <argument key="App\Controller\HomeController:index" type="service" id=".service_locator.JeTwYn4"/>
-        <argument key="App\Controller\HomeController:pdt" type="service" id=".service_locator.iyEwlLH"/>
+        <argument key="App\Controller\HomeController:product" type="service" id=".service_locator.iyEwlLH"/>
         <argument key="App\Controller\HomeController:products" type="service" id=".service_locator.JeTwYn4"/>
         <argument key="App\Controller\RegistrationController:register" type="service" id=".service_locator.YT8XVZ7"/>
         <argument key="App\Controller\SecurityController:login" type="service" id=".service_locator.UDgw6Ol"/>
@@ -6187,12 +6207,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.fdPDa8r"/>
+      <argument type="service" id=".service_locator.cFiblNs"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.fdPDa8r"/>
+      <argument type="service" id=".service_locator.cFiblNs"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
       <argument type="collection"/>
@@ -6615,7 +6635,7 @@
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.Kbr2i2X" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.fdPDa8r"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.cFiblNs"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

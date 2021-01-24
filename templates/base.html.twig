@@ -35,7 +35,15 @@
                     </li>
                     {% if is_granted('IS_AUTHENTICATED_FULLY') -%}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Mon Compte</a>
+                        <a class="nav-link" href="#">Mon Profile</a>
+                    </li>
+                    {% endif %}
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') and  is_granted('ROLE_ADMIN') -%}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Mon Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/addProduct">Ajouter un produit</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -59,9 +67,7 @@
     </nav>
 {% endblock %}
 {% block body %}{% endblock %}
-<div class="footer fixed-bottom">
 
-</div>
 {% block javascripts %}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>

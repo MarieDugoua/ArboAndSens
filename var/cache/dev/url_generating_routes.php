@@ -17,7 +17,7 @@ return [
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     'home' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/']], [], []],
     'products' => [[], ['_controller' => 'App\\Controller\\HomeController::products'], [], [['text', '/products']], [], []],
-    'product' => [['id'], ['_controller' => 'App\\Controller\\HomeController::pdt'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/product']], [], []],
+    'product' => [['id'], ['_controller' => 'App\\Controller\\HomeController::product'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/product']], [], []],
     'addProduct' => [[], ['_controller' => 'App\\Controller\\HomeController::add'], [], [['text', '/addProduct']], [], []],
     'updateProduct' => [['id'], ['_controller' => 'App\\Controller\\HomeController::edit'], [], [['text', '/update'], ['variable', '/', '[^/]++', 'id', true], ['text', '/product']], [], []],
     'deleteProduct' => [['id'], ['_controller' => 'App\\Controller\\HomeController::delete'], [], [['text', '/delete'], ['variable', '/', '[^/]++', 'id', true], ['text', '/product']], [], []],

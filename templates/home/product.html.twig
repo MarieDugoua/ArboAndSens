@@ -15,7 +15,7 @@
                     <div class="d-flex flex-row-reverse bd-highlight">
                         <div class="p-2 bd-highlight">
                             <a href="#/{{product.id}}" class="btn btn-outline-primary mx-auto">Ajouter</a>
-                            {% if is_granted('ROLE_USER') %}
+                            {% if  denyAccessUnlessGranted('ROLE_ADMIN')%}
                                 <a href="/product/{{product.id}}/update" class="btn btn-outline-primary mx-auto">Modifier</a>
                                 <a href="/product/{{product.id}}/delete" class="btn btn-outline-danger mx-auto">Supprimer</a>
                             {% endif %}
@@ -24,5 +24,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="footer fixed-bottom">
+
     </div>
 {% endblock %}
