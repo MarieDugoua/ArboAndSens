@@ -51,6 +51,16 @@ class HomeController extends AbstractController
     }
 
     /**
+     * @Route("/profile", name="profile")
+     */
+    public function profile()
+    {
+        return $this->render('home/profile.html.twig', [
+
+        ]);
+    }
+
+    /**
      * @Route("/shopping", name="shopping")
      * @param Product $product
      */
@@ -93,6 +103,7 @@ class HomeController extends AbstractController
         }
 
         $session->set('shopBag', $shopBag);
+        return $this->redirectToRoute("products");
 
     }
 
@@ -108,7 +119,6 @@ class HomeController extends AbstractController
         }
 
         $session->set('shopBag', $shopBag);
-
         return $this->redirectToRoute("shopping");
     }
 
