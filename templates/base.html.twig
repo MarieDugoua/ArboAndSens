@@ -31,7 +31,7 @@
                         <a class="nav-link" href="/products">Petits aménagements</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Gros aménagements</a>
+                        <a class="nav-link" href="#">Sur Mesure</a>
                     </li>
                     {% if is_granted('IS_AUTHENTICATED_FULLY') -%}
                     <li class="nav-item">
@@ -65,6 +65,12 @@
             </div>
         </div>
     </nav>
+    <div class="container mt-5">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Bientôt du nouveau !</strong> Vous pourrez commander des meubles <strong>sur mesure</strong> et également laisser un <strong>feedback</strong> pour chaque article !
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
 {% endblock %}
 {% block body %}{% endblock %}
 

@@ -22,6 +22,7 @@
       <parameter key="MakerBundle">Symfony\Bundle\MakerBundle\MakerBundle</parameter>
       <parameter key="DoctrineFixturesBundle">Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle</parameter>
       <parameter key="WebpackEncoreBundle">Symfony\WebpackEncoreBundle\WebpackEncoreBundle</parameter>
+      <parameter key="KnpPaginatorBundle">Knp\Bundle\PaginatorBundle\KnpPaginatorBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -75,6 +76,10 @@
       <parameter key="WebpackEncoreBundle" type="collection">
         <parameter key="path">/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/webpack-encore-bundle/src</parameter>
         <parameter key="namespace">Symfony\WebpackEncoreBundle</parameter>
+      </parameter>
+      <parameter key="KnpPaginatorBundle" type="collection">
+        <parameter key="path">/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle</parameter>
+        <parameter key="namespace">Knp\Bundle\PaginatorBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -246,6 +251,11 @@
       </parameter>
     </parameter>
     <parameter key="env(VAR_DUMPER_SERVER)">127.0.0.1:9912</parameter>
+    <parameter key="knp_paginator.template.pagination">@KnpPaginator/Pagination/sliding.html.twig</parameter>
+    <parameter key="knp_paginator.template.filtration">@KnpPaginator/Pagination/filtration.html.twig</parameter>
+    <parameter key="knp_paginator.template.sortable">@KnpPaginator/Pagination/sortable_link.html.twig</parameter>
+    <parameter key="knp_paginator.page_range">5</parameter>
+    <parameter key="knp_paginator.page_limit">null</parameter>
     <parameter key="data_collector.templates" type="collection">
       <parameter key="data_collector.request" type="collection">
         <parameter>request</parameter>
@@ -1669,6 +1679,7 @@
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.ar.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/form/Resources/translations/validators.ar.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/security-core/Resources/translations/security.ar.xlf</argument>
+            <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.ar.xliff</argument>
           </argument>
           <argument key="az" type="collection">
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.az.xlf</argument>
@@ -1684,6 +1695,7 @@
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.bg.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/form/Resources/translations/validators.bg.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/security-core/Resources/translations/security.bg.xlf</argument>
+            <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.bg.xliff</argument>
           </argument>
           <argument key="bs" type="collection">
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.bs.xlf</argument>
@@ -1699,6 +1711,7 @@
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.cs.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/form/Resources/translations/validators.cs.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/security-core/Resources/translations/security.cs.xlf</argument>
+            <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.cs.xliff</argument>
           </argument>
           <argument key="cy" type="collection">
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.cy.xlf</argument>
@@ -1707,11 +1720,13 @@
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.da.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/form/Resources/translations/validators.da.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/security-core/Resources/translations/security.da.xlf</argument>
+            <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.da.xliff</argument>
           </argument>
           <argument key="de" type="collection">
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.de.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/form/Resources/translations/validators.de.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/security-core/Resources/translations/security.de.xlf</argument>
+            <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.de.xliff</argument>
           </argument>
           <argument key="el" type="collection">
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.el.xlf</argument>
@@ -1722,11 +1737,13 @@
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.en.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/form/Resources/translations/validators.en.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/security-core/Resources/translations/security.en.xlf</argument>
+            <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.en.xliff</argument>
           </argument>
           <argument key="es" type="collection">
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.es.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/form/Resources/translations/validators.es.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/security-core/Resources/translations/security.es.xlf</argument>
+            <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.es.xliff</argument>
           </argument>
           <argument key="et" type="collection">
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.et.xlf</argument>
@@ -1736,11 +1753,13 @@
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.eu.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/form/Resources/translations/validators.eu.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/security-core/Resources/translations/security.eu.xlf</argument>
+            <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.eu.xliff</argument>
           </argument>
           <argument key="fa" type="collection">
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.fa.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/form/Resources/translations/validators.fa.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/security-core/Resources/translations/security.fa.xlf</argument>
+            <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.fa.xliff</argument>
           </argument>
           <argument key="fi" type="collection">
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.fi.xlf</argument>
@@ -1751,6 +1770,7 @@
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.fr.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/form/Resources/translations/validators.fr.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/security-core/Resources/translations/security.fr.xlf</argument>
+            <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.fr.xliff</argument>
           </argument>
           <argument key="gl" type="collection">
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.gl.xlf</argument>
@@ -1771,6 +1791,7 @@
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.hu.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/form/Resources/translations/validators.hu.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/security-core/Resources/translations/security.hu.xlf</argument>
+            <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.hu.xliff</argument>
           </argument>
           <argument key="hy" type="collection">
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.hy.xlf</argument>
@@ -1780,16 +1801,19 @@
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.id.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/form/Resources/translations/validators.id.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/security-core/Resources/translations/security.id.xlf</argument>
+            <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.id.xliff</argument>
           </argument>
           <argument key="it" type="collection">
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.it.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/form/Resources/translations/validators.it.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/security-core/Resources/translations/security.it.xlf</argument>
+            <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.it.xliff</argument>
           </argument>
           <argument key="ja" type="collection">
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.ja.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/form/Resources/translations/validators.ja.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/security-core/Resources/translations/security.ja.xlf</argument>
+            <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.ja.xliff</argument>
           </argument>
           <argument key="lb" type="collection">
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.lb.xlf</argument>
@@ -1800,6 +1824,7 @@
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.lt.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/form/Resources/translations/validators.lt.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/security-core/Resources/translations/security.lt.xlf</argument>
+            <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.lt.xliff</argument>
           </argument>
           <argument key="lv" type="collection">
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.lv.xlf</argument>
@@ -1820,6 +1845,7 @@
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.nl.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/form/Resources/translations/validators.nl.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/security-core/Resources/translations/security.nl.xlf</argument>
+            <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.nl.xliff</argument>
           </argument>
           <argument key="nn" type="collection">
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.nn.xlf</argument>
@@ -1830,11 +1856,13 @@
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.no.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/form/Resources/translations/validators.no.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/security-core/Resources/translations/security.no.xlf</argument>
+            <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.no.xliff</argument>
           </argument>
           <argument key="pl" type="collection">
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.pl.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/form/Resources/translations/validators.pl.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/security-core/Resources/translations/security.pl.xlf</argument>
+            <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.pl.xliff</argument>
           </argument>
           <argument key="pt" type="collection">
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.pt.xlf</argument>
@@ -1845,16 +1873,19 @@
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.pt_BR.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/form/Resources/translations/validators.pt_BR.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/security-core/Resources/translations/security.pt_BR.xlf</argument>
+            <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.pt_BR.xliff</argument>
           </argument>
           <argument key="ro" type="collection">
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.ro.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/form/Resources/translations/validators.ro.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/security-core/Resources/translations/security.ro.xlf</argument>
+            <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.ro.xliff</argument>
           </argument>
           <argument key="ru" type="collection">
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.ru.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/form/Resources/translations/validators.ru.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/security-core/Resources/translations/security.ru.xlf</argument>
+            <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.ru.xliff</argument>
           </argument>
           <argument key="sk" type="collection">
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.sk.xlf</argument>
@@ -1885,6 +1916,7 @@
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.sv.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/form/Resources/translations/validators.sv.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/security-core/Resources/translations/security.sv.xlf</argument>
+            <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.sv.xliff</argument>
           </argument>
           <argument key="th" type="collection">
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.th.xlf</argument>
@@ -1900,11 +1932,13 @@
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.tr.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/form/Resources/translations/validators.tr.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/security-core/Resources/translations/security.tr.xlf</argument>
+            <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.tr.xliff</argument>
           </argument>
           <argument key="uk" type="collection">
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.uk.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/form/Resources/translations/validators.uk.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/security-core/Resources/translations/security.uk.xlf</argument>
+            <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.uk.xliff</argument>
           </argument>
           <argument key="vi" type="collection">
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations/validators.vi.xlf</argument>
@@ -1921,11 +1955,18 @@
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/form/Resources/translations/validators.zh_TW.xlf</argument>
             <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/security-core/Resources/translations/security.zh_TW.xlf</argument>
           </argument>
+          <argument key="ky" type="collection">
+            <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.ky.xliff</argument>
+          </argument>
+          <argument key="sw" type="collection">
+            <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.sw.xliff</argument>
+          </argument>
         </argument>
         <argument key="scanned_directories" type="collection">
           <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/validator/Resources/translations</argument>
           <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/form/Resources/translations</argument>
           <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/security-core/Resources/translations</argument>
+          <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/translations</argument>
           <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/translations</argument>
           <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/framework-bundle/translations</argument>
           <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/sensio/framework-extra-bundle/src/translations</argument>
@@ -1946,6 +1987,7 @@
             <argument>vendor/symfony/validator/Resources/translations</argument>
             <argument>vendor/symfony/form/Resources/translations</argument>
             <argument>vendor/symfony/security-core/Resources/translations</argument>
+            <argument>vendor/knplabs/knp-paginator-bundle/translations</argument>
             <argument>translations</argument>
             <argument>vendor/symfony/framework-bundle/translations</argument>
             <argument>vendor/sensio/framework-extra-bundle/src/translations</argument>
@@ -2443,6 +2485,14 @@
         <argument>0</argument>
       </call>
       <call method="addListener">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.sliding_pagination"/>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
         <argument>kernel.response</argument>
         <argument type="collection">
           <argument type="service" id="response_listener"/>
@@ -2873,6 +2923,46 @@
           <argument>onLogout</argument>
         </argument>
         <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.paginate"/>
+          <argument>before</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.pagination</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.paginate"/>
+          <argument>pagination</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.sortable"/>
+          <argument>before</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.filtration"/>
+          <argument>before</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.pagination</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.sliding_pagination"/>
+          <argument>pagination</argument>
+        </argument>
+        <argument>1</argument>
       </call>
     </service>
     <service id="debug.controller_resolver" class="Symfony\Component\HttpKernel\Controller\TraceableControllerResolver">
@@ -4672,6 +4762,9 @@
       <call method="addExtension">
         <argument type="service" id="webpack_encore.twig_entry_files_extension"/>
       </call>
+      <call method="addExtension">
+        <argument type="service" id="knp_paginator.twig.extension.pagination"/>
+      </call>
       <call method="addGlobal">
         <argument>app</argument>
         <argument type="service" id="twig.app_variable"/>
@@ -4762,6 +4855,14 @@
       <call method="addPath">
         <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/symfony/debug-bundle/Resources/views</argument>
         <argument>!Debug</argument>
+      </call>
+      <call method="addPath">
+        <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/templates</argument>
+        <argument>KnpPaginator</argument>
+      </call>
+      <call method="addPath">
+        <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/vendor/knplabs/knp-paginator-bundle/templates</argument>
+        <argument>!KnpPaginator</argument>
       </call>
       <call method="addPath">
         <argument>/Users/marie/Documents/ynov_2020_2021/projet_web/ArboAndSens/templates</argument>
@@ -5366,6 +5467,52 @@
       <argument type="collection">
         <argument key="_default" type="service" id="webpack_encore.entrypoint_lookup[_default]"/>
       </argument>
+    </service>
+    <service id="knp_paginator" class="Knp\Component\Pager\Paginator" public="true" lazy="true">
+      <tag name="proxy" interface="Knp\Component\Pager\PaginatorInterface"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+      <argument type="service" id="request_stack"/>
+      <call method="setDefaultPaginatorOptions">
+        <argument type="collection">
+          <argument key="pageParameterName">page</argument>
+          <argument key="sortFieldParameterName">sort</argument>
+          <argument key="sortDirectionParameterName">direction</argument>
+          <argument key="filterFieldParameterName">filterField</argument>
+          <argument key="filterValueParameterName">filterValue</argument>
+          <argument key="distinct">true</argument>
+          <argument key="pageOutOfRange">ignore</argument>
+          <argument key="defaultLimit">10</argument>
+        </argument>
+      </call>
+    </service>
+    <service id="knp_paginator.subscriber.paginate" class="Knp\Component\Pager\Event\Subscriber\Paginate\PaginationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sortable" class="Knp\Component\Pager\Event\Subscriber\Sortable\SortableSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.filtration" class="Knp\Component\Pager\Event\Subscriber\Filtration\FiltrationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sliding_pagination" class="Knp\Bundle\PaginatorBundle\Subscriber\SlidingPaginationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+      <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
+      <tag name="container.hot_path"/>
+      <argument type="collection">
+        <argument key="defaultPaginationTemplate">@KnpPaginator/Pagination/sliding.html.twig</argument>
+        <argument key="defaultSortableTemplate">@KnpPaginator/Pagination/sortable_link.html.twig</argument>
+        <argument key="defaultFiltrationTemplate">@KnpPaginator/Pagination/filtration.html.twig</argument>
+        <argument key="defaultPageRange">5</argument>
+        <argument key="defaultPageLimit">null</argument>
+      </argument>
+    </service>
+    <service id="knp_paginator.helper.processor" class="Knp\Bundle\PaginatorBundle\Helper\Processor">
+      <argument type="service" id="router.default"/>
+      <argument type="service" id="translator.data_collector"/>
+    </service>
+    <service id="knp_paginator.twig.extension.pagination" class="Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id="knp_paginator.helper.processor"/>
     </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
@@ -6633,6 +6780,7 @@
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger"/>
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupCollectionInterface" alias="webpack_encore.entrypoint_lookup_collection"/>
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
+    <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.Kbr2i2X" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
     <service id="argument_resolver.controller_locator" alias=".service_locator.cFiblNs"/>

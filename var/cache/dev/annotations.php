@@ -67,8 +67,8 @@ return [[
 '%5B%5BC%5DApp%5CController%5CHomeController%23index%5D%5B1%5D' => 2,
 '%5BApp%5CController%5CHomeController%23products%5D%5B1%5D' => 4,
 '%5B%5BC%5DApp%5CController%5CHomeController%23products%5D%5B1%5D' => 2,
-'%5BApp%5CController%5CHomeController%23pdt%5D%5B1%5D' => 5,
-'%5B%5BC%5DApp%5CController%5CHomeController%23pdt%5D%5B1%5D' => 2,
+'%5BApp%5CController%5CHomeController%23product%5D%5B1%5D' => 5,
+'%5B%5BC%5DApp%5CController%5CHomeController%23product%5D%5B1%5D' => 2,
 '%5BApp%5CController%5CHomeController%23add%5D%5B1%5D' => 6,
 '%5B%5BC%5DApp%5CController%5CHomeController%23add%5D%5B1%5D' => 2,
 '%5BApp%5CController%5CHomeController%23edit%5D%5B1%5D' => 7,
@@ -974,7 +974,7 @@ return [[
 
 0 => 'N;',
 1 => [],
-2 => 1611331987,
+2 => 1611487020,
 3 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
@@ -984,7 +984,7 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    '/home',
+                    '/',
                 ],
                 'name' => [
                     'home',
