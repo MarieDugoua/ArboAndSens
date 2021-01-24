@@ -9,6 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
@@ -47,6 +48,68 @@ class HomeController extends AbstractController
             'product' => $product,
 
         ]);
+    }
+
+    /**
+     * @Route("/shopping", name="shopping")
+     * @param Product $product
+     */
+    public function shopping(SessionInterface $session, ProductRepository $productRepository)
+    {
+        $shopBag = $session->get('shopBag', []);
+        $shopBagData = [];
+
+        foreach ($shopBag as $id => $quantity){
+            $shopBagData[]= [
+                'product' => $productRepository->find($id),
+                'quantity' => $quantity
+            ];
+        }
+
+        $total = 0;
+
+        foreach ($shopBagData as $item){
+            $totalItem = $item['product']->getPrice() * $item['quantity'];
+            $total += $totalItem;
+        }
+
+        return $this->render('home/shopping.html.twig', [
+            'items' => $shopBagData,
+            'total' => $total,
+        ]);
+    }
+
+    /**
+     * @Route("/shopping/shoppingAdd/{id}", name="shoppingAdd")
+     */
+    public function shoppingAdd($id, SessionInterface $session)
+    {
+        $shopBag = $session->get('shopBag', []);
+
+        if(!empty($shopBag[$id])){
+            $shopBag[$id]++;
+        }else {
+            $shopBag[$id] = 1;
+        }
+
+        $session->set('shopBag', $shopBag);
+
+    }
+
+    /**
+    *@Route("/shopping/shopDel/{id}", name="shopDel")
+     */
+    public function shopDel($id, SessionInterface $session)
+    {
+        $shopBag = $session->get('shopBag', []);
+
+        if (!empty($shopBag[$id])) {
+            unset($shopBag[$id]);
+        }
+
+        $session->set('shopBag', $shopBag);
+
+        return $this->redirectToRoute("shopping");
     }
 
     /**

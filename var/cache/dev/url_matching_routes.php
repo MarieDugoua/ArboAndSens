@@ -15,6 +15,7 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
         '/products' => [[['_route' => 'products', '_controller' => 'App\\Controller\\HomeController::products'], null, null, null, false, false, null]],
+        '/shopping' => [[['_route' => 'shopping', '_controller' => 'App\\Controller\\HomeController::shopping'], null, null, null, false, false, null]],
         '/addProduct' => [[['_route' => 'addProduct', '_controller' => 'App\\Controller\\HomeController::add'], null, null, null, false, false, null]],
         '/registration' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\RegistrationController::register'], null, null, null, false, false, null]],
         '/security' => [[['_route' => 'security', '_controller' => 'App\\Controller\\SecurityController::index'], null, null, null, false, false, null]],
@@ -49,6 +50,10 @@ return [
                         .'|delete(*:221)'
                     .')'
                 .')'
+                .'|/shopping/shop(?'
+                    .'|pingAdd/([^/]++)(*:264)'
+                    .'|Del/([^/]++)(*:284)'
+                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -61,8 +66,10 @@ return [
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         189 => [[['_route' => 'product', '_controller' => 'App\\Controller\\HomeController::product'], ['id'], null, null, false, true, null]],
         207 => [[['_route' => 'updateProduct', '_controller' => 'App\\Controller\\HomeController::edit'], ['id'], null, null, false, false, null]],
-        221 => [
-            [['_route' => 'deleteProduct', '_controller' => 'App\\Controller\\HomeController::delete'], ['id'], null, null, false, false, null],
+        221 => [[['_route' => 'deleteProduct', '_controller' => 'App\\Controller\\HomeController::delete'], ['id'], null, null, false, false, null]],
+        264 => [[['_route' => 'shoppingAdd', '_controller' => 'App\\Controller\\HomeController::shoppingAdd'], ['id'], null, null, false, true, null]],
+        284 => [
+            [['_route' => 'shopDel', '_controller' => 'App\\Controller\\HomeController::shopDel'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],
