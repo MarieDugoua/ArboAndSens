@@ -8,9 +8,8 @@
             <p>Nom : {{ app.user.lastName }}</p>
             <p>Prénom : {{ app.user.firstName }}</p>
             <p>E-mail : {{ app.user.email }}</p>
-            <p>Date de naissance : {{ app.user.birthdate }}</p>
         </div>
-        <div>
+        <div class="h-50 overflow-scroll">
             <table class="table">
                 <thead>
                 <tr>
@@ -22,7 +21,6 @@
                 {% for order in app.user.orderHistories %}
                 <tr>
                     <td>{{ order.title }}</td>
-                    <td>{{ order.orderDate }}</td>
                 </tr>
                 {% endfor %}
                 </tbody>

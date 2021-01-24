@@ -11,7 +11,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ product.name }}</h5>
                             <p class="card-text text-truncate">{{ product.description }}</p>
-                            <p class="card-text text-end">{{ product.price }} €</p>
+                            <p class="card-text text-end">{{ product.price|number_format(2, ',', ' ') }} €</p>
                             <div class="d-flex flex-row-reverse bd-highlight">
                                 <div class="p-2 bd-highlight">
                                     <a href="/product/{{product.id}}" class="btn btn-outline-primary mx-auto">Voir le produit</a>

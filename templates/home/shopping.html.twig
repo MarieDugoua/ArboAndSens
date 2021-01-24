@@ -3,7 +3,7 @@
 {% block body %}
     <div class="container">
         <h1 class="text-center">Votre panier</h1>
-        <table class="table">
+        <table class="table mt-5">
             <thead>
             <tr>
                 <th>Produit</th>
@@ -17,10 +17,10 @@
                 <tbody>
                 {% for item in items %}
                     <tr>
-                        <td>{{ item.product.name }}</td>
-                        <td>{{ item.product.price }}</td>
-                        <td>{{ item.quantity }}</td>
-                        <td>{{ item.product.price * item.quantity }}</td>
+                        <td class="text-end">{{ item.product.name }}</td>
+                        <td class="text-end">{{ item.product.price }} €</td>
+                        <td class="text-end">{{ item.quantity }}</td>
+                        <td class="text-end">{{ (item.product.price * item.quantity)|number_format(2, ',', ' ') }}</td>
                         <td>
                             <a href="{{ path('shopDel', {'id': item.product.id })}}" class="btn btn-danger btn-sm">Supprimer</a>
                         </td>
@@ -30,8 +30,10 @@
                 <tfoot>
                 <tr>
                     <td colspan="3" class="text-end"> Total :</td>
-                    <td>{{ total }}</td>
-                    <td></td>
+                    <td class="text-end">{{ total|number_format(2, ',', ' ') }} €</td>
+                    <td>
+                        <a href="" class="btn btn-success btn-sm">Finaliser</a>
+                    </td>
                 </tr>
                 </tfoot>
             {% else %}
