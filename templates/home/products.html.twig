@@ -4,16 +4,17 @@
 
     <div class="container">
         <div class="row">
-            {% for pdt in product %}
-                <div class="col-md-4 mt-5">
+            {% for product in products %}
+                <div class="col-md-4 mt-5 mb-5">
                     <div class="card">
+                        <img src="..." class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">{{ pdt.name }}</h5>
-                            <p class="card-text">{{ pdt.price }}</p>
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text text-truncate">{{ product.description }}</p>
+                            <p class="card-text text-end">{{ product.price }} </p>
                             <div class="d-flex flex-row-reverse bd-highlight">
                                 <div class="p-2 bd-highlight">
-                                    <a href="/product/{{pdt.id}}" class="btn btn-outline-primary mx-auto">Allez sur le produit</a>
-
+                                    <a href="/product/{{product.id}}" class="btn btn-outline-primary mx-auto">Voir le produit</a>
                                 </div>
                             </div>
                         </div>

@@ -28,7 +28,7 @@ class AppFixtures extends Fixture
         for ($i = 1; $i <= 50; $i++) {
 
             $product = new Product();
-            $product->setCategory($faker->randomElement($array = array($categoryP, $categoryG)))
+            $product->setCategory($categoryP)
                     ->setName($faker->randomElement($array = array("chaise", "table", "tabouret", "banc", "table de chevet", "dressing", "bibliothèque", "bureau", "étagère")))
                     ->setDescription($faker->sentence($nbWords = 150, $variableNbWords = true))
                     ->setPrice($faker->randomFloat($nbMaxDecimals = NULL, $min = 50, $max = NULL));
@@ -41,13 +41,18 @@ class AppFixtures extends Fixture
         }
         $user = new User();
         $user->setRoles(['ROLE_ADMIN'])
-            ->setEmail('admin@lea.fr')
+            ->setEmail('mariedugoua@gmail.com')
             ->setPassword('admin')
             ->setFirstname('admin')
-            ->setLastname('lea')
-            ->setBirthdate('2016-01-01 00:00:00');
+            ->setLastname('admin')
+            ->setBirthdate($faker->dateTimeAD($max = 'now', $timezone = null));
         $manager->persist($user);
 
+        $admin = new Admin();
+        $admin->setRoles(['ROLE_ADMIN'])
+            ->setEmail('mariedugoua@gmail.com')
+            ->setPassword('admin');
+        $manager->persist($admin);
 
         $manager->flush();
     }

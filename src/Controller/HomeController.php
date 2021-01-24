@@ -21,7 +21,7 @@ class HomeController extends AbstractController
     {
         $product = $productRepository->findAll();
         return $this->render('home/index.html.twig', [
-            'product' => $product,
+            'products' => $product,
         ]);
     }
 
@@ -33,7 +33,7 @@ class HomeController extends AbstractController
     {
         $product = $productRepository->findAll();
         return $this->render('home/products.html.twig', [
-            'product' => $product,
+            'products' => $product,
         ]);
     }
 
