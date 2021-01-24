@@ -27,6 +27,23 @@ class HomeController extends AbstractController
     }
 
     /**
+     * @Route("/presentation", name="presentation")
+     */
+    public function presentation()
+    {
+        return $this->render('home/presentation.html.twig', [
+        ]);
+    }
+
+    /**
+     * @Route("/equipe", name="equipe")
+     */
+    public function equipe()
+    {
+        return $this->render('home/equipe.html.twig', [
+        ]);
+    }
+    /**
      * @Route("/products", name="products")
      * @param ProductRepository $productRepository
      */

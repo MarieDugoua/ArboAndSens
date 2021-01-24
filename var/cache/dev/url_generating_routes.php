@@ -16,6 +16,8 @@ return [
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     'home' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/']], [], []],
+    'presentation' => [[], ['_controller' => 'App\\Controller\\HomeController::presentation'], [], [['text', '/presentation']], [], []],
+    'equipe' => [[], ['_controller' => 'App\\Controller\\HomeController::equipe'], [], [['text', '/equipe']], [], []],
     'products' => [[], ['_controller' => 'App\\Controller\\HomeController::products'], [], [['text', '/products']], [], []],
     'product' => [['id'], ['_controller' => 'App\\Controller\\HomeController::product'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/product']], [], []],
     'profile' => [[], ['_controller' => 'App\\Controller\\HomeController::profile'], [], [['text', '/profile']], [], []],
