@@ -3,8 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Address;
+use App\Entity\PaymentInfo;
 use App\Entity\Product;
 use App\Entity\User;
+use App\Form\AddressFormType;
+use App\Form\PaymentFormType;
 use App\Form\ProductFormType;
 use App\Form\RegistrationFormType;
 use App\Repository\OrderHistoryRepository;
@@ -51,6 +54,31 @@ class HomeController extends AbstractController
     }
 
     /**
+     * @Route("/admin", name="admin")
+     */
+    public function admin(UserRepository $userRepository, OrderHistoryRepository $historyRepository)
+    {
+
+        $users = $userRepository->findAll();
+        $orders = $userRepository->findAll();
+
+        return $this->render('home/admin.html.twig', [
+            'users' => $users,
+            'orders' => $orders,
+        ]);
+    }
+
+    /**
+     * @Route("/profile", name="profile")
+     */
+    public function profile()
+    {
+        return $this->render('home/profile.html.twig', [
+
+        ]);
+    }
+
+    /**
      * @Route("/products", name="products")
      * @param ProductRepository $productRepository
      */
@@ -83,60 +111,6 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/profile", name="profile")
-     */
-    public function profile()
-    {
-        return $this->render('home/profile.html.twig', [
-
-        ]);
-    }
-
-    /**
-     * @Route("/addAddress", name="addAddress")
-     * @param Address $address
-     */
-
-    public function addAddress(Request $request, EntityManagerInterface $entityManager)
-    {
-        $newAdress = new Address();
-        $form = $this->createForm(AddressFormType::class, $newAddress);
-
-        $form->handleRequest($request);
-
-        if($form->isSubmitted() && $form->isValid()) {
-
-            $entityManager->persist($newAdress);
-            $entityManager->flush();
-
-            $this->addFlash('success', 'Article added!');
-
-            return $this->redirectToRoute('home');
-        }
-
-        return $this->render('home/addProduct.html.twig', [
-            "form" => $form->createView()
-
-        ]);
-
-    }
-
-    /**
-     * @Route("/admin", name="admin")
-     */
-    public function admin(UserRepository $userRepository, OrderHistoryRepository $historyRepository)
-    {
-
-        $users = $userRepository->findAll();
-        $orders = $userRepository->findAll();
-
-        return $this->render('home/admin.html.twig', [
-            'users' => $users,
-            'orders' => $orders,
-        ]);
-    }
-
-    /**
      * @Route("/shopping", name="shopping")
      * @param Product $product
      */
@@ -163,6 +137,150 @@ class HomeController extends AbstractController
             'items' => $shopBagData,
             'total' => $total,
         ]);
+    }
+
+    /**
+     * @Route("/addAddress/{id}", name="addAddress")
+     * @param Address $address
+     */
+
+    public function addAddress( Request $request, EntityManagerInterface $entityManager)
+    {
+        $newAddress = new Address();
+        $form = $this->createForm(AddressFormType::class, $newAddress);
+
+        $id = $this->getUser();
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $newAddress->setUser($id);
+            $entityManager->persist($newAddress);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Adresse ajouté!');
+
+            return $this->redirectToRoute('profile');
+        }
+
+        return $this->render('home/addAddress.html.twig', [
+            "form" => $form->createView()
+
+        ]);
+
+    }
+
+    /**
+     * @Route("/profile/{id}/updateAddress", name="updateAddress")
+     * @param Address $address
+     */
+
+    public function editAddress(Address $address, Request $request, EntityManagerInterface $entityManager)
+    {
+        $form = $this->createForm(AddressFormType::class, $address);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+
+            $address = $form->getData();
+
+            $entityManager->persist($address);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Adresse modidié!');
+
+            return $this->redirectToRoute('profile');
+        }
+
+        return $this->render('home/updateAddress.html.twig', [
+            "form" => $form->createView()
+
+        ]);
+    }
+
+    /**
+     * @Route("/profile/{id}/deleteAddress", name="deleteAddress")
+     * @param Address $address
+     */
+    public function deleteAddress(Address $address){
+        $del = $this->getDoctrine()->getManager();
+        $del->remove($address);
+        $del->flush();
+
+        return $this->redirectToRoute('profile');
+    }
+
+    /**
+     * @Route("/addPayment/{id}", name="addPayment")
+     * @param PaymentInfo $payment
+     */
+
+    public function addPayment( Request $request, EntityManagerInterface $entityManager)
+    {
+        $newPayment = new PaymentInfo();
+        $form = $this->createForm(PaymentFormType::class, $newPayment);
+
+        $id = $this->getUser();
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $newPayment->setUser($id);
+            $entityManager->persist($newPayment);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Carte ajouté!');
+
+            return $this->redirectToRoute('profile');
+        }
+
+        return $this->render('home/addPayment.html.twig', [
+            "form" => $form->createView()
+
+        ]);
+
+    }
+
+    /**
+     * @Route("/profile/{id}/updatePayment", name="updatePayment")
+     * @param PaymentInfo $payment
+     */
+
+    public function editPayment(PaymentInfo $payment, Request $request, EntityManagerInterface $entityManager)
+    {
+        $form = $this->createForm(PaymentFormType::class, $payment);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+
+            $payment = $form->getData();
+
+            $entityManager->persist($payment);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Carte modidié!');
+
+            return $this->redirectToRoute('profile');
+        }
+
+        return $this->render('home/updatePayment.html.twig', [
+            "form" => $form->createView()
+
+        ]);
+    }
+
+    /**
+     * @Route("/profile/{id}/deletePayment", name="deletePayment")
+     * @param PaymentInfo $payment
+     */
+    public function deletePayment(PaymentInfo $payment){
+        $del = $this->getDoctrine()->getManager();
+        $del->remove($payment);
+        $del->flush();
+
+        return $this->redirectToRoute('profile');
     }
 
     /**
@@ -267,6 +385,7 @@ class HomeController extends AbstractController
 
         return $this->redirectToRoute('products');
     }
+
     /**
      * @Route("/admin/{id}/update", name="updateMember")
      * @param User $user
@@ -280,12 +399,11 @@ class HomeController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()) {
 
-            $offer = $form->getData();
+            $user = $form->getData();
 
             $entityManager->persist($user);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Article Updated!');
 
             return $this->redirectToRoute('admin');
         }

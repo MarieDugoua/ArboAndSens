@@ -16,10 +16,9 @@ return [
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
         '/presentation' => [[['_route' => 'presentation', '_controller' => 'App\\Controller\\HomeController::presentation'], null, null, null, false, false, null]],
         '/equipe' => [[['_route' => 'equipe', '_controller' => 'App\\Controller\\HomeController::equipe'], null, null, null, false, false, null]],
-        '/products' => [[['_route' => 'products', '_controller' => 'App\\Controller\\HomeController::products'], null, null, null, false, false, null]],
-        '/profile' => [[['_route' => 'profile', '_controller' => 'App\\Controller\\HomeController::profile'], null, null, null, false, false, null]],
-        '/addAddress' => [[['_route' => 'addAddress', '_controller' => 'App\\Controller\\HomeController::addAddress'], null, null, null, false, false, null]],
         '/admin' => [[['_route' => 'admin', '_controller' => 'App\\Controller\\HomeController::admin'], null, null, null, false, false, null]],
+        '/profile' => [[['_route' => 'profile', '_controller' => 'App\\Controller\\HomeController::profile'], null, null, null, false, false, null]],
+        '/products' => [[['_route' => 'products', '_controller' => 'App\\Controller\\HomeController::products'], null, null, null, false, false, null]],
         '/shopping' => [[['_route' => 'shopping', '_controller' => 'App\\Controller\\HomeController::shopping'], null, null, null, false, false, null]],
         '/addProduct' => [[['_route' => 'addProduct', '_controller' => 'App\\Controller\\HomeController::add'], null, null, null, false, false, null]],
         '/registration' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\RegistrationController::register'], null, null, null, false, false, null]],
@@ -48,20 +47,38 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/product/([^/]++)(?'
-                    .'|(*:189)'
-                    .'|/(?'
-                        .'|update(*:207)'
-                        .'|delete(*:221)'
+                .'|/pro(?'
+                    .'|duct/([^/]++)(?'
+                        .'|(*:192)'
+                        .'|/(?'
+                            .'|update(*:210)'
+                            .'|delete(*:224)'
+                        .')'
+                    .')'
+                    .'|file/([^/]++)/(?'
+                        .'|update(?'
+                            .'|Address(*:267)'
+                            .'|Payment(*:282)'
+                        .')'
+                        .'|delete(?'
+                            .'|Address(*:307)'
+                            .'|Payment(*:322)'
+                        .')'
+                    .')'
+                .')'
+                .'|/ad(?'
+                    .'|d(?'
+                        .'|Address/([^/]++)(*:359)'
+                        .'|Payment/([^/]++)(*:383)'
+                    .')'
+                    .'|min/([^/]++)/(?'
+                        .'|update(*:414)'
+                        .'|delete(*:428)'
                     .')'
                 .')'
                 .'|/shopping/shop(?'
-                    .'|pingAdd/([^/]++)(*:264)'
-                    .'|Del/([^/]++)(*:284)'
-                .')'
-                .'|/admin/([^/]++)/(?'
-                    .'|update(*:318)'
-                    .'|delete(*:332)'
+                    .'|pingAdd/([^/]++)(*:471)'
+                    .'|Del/([^/]++)(*:491)'
                 .')'
             .')/?$}sDu',
     ],
@@ -73,14 +90,20 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        189 => [[['_route' => 'product', '_controller' => 'App\\Controller\\HomeController::product'], ['id'], null, null, false, true, null]],
-        207 => [[['_route' => 'updateProduct', '_controller' => 'App\\Controller\\HomeController::edit'], ['id'], null, null, false, false, null]],
-        221 => [[['_route' => 'deleteProduct', '_controller' => 'App\\Controller\\HomeController::delete'], ['id'], null, null, false, false, null]],
-        264 => [[['_route' => 'shoppingAdd', '_controller' => 'App\\Controller\\HomeController::shoppingAdd'], ['id'], null, null, false, true, null]],
-        284 => [[['_route' => 'shopDel', '_controller' => 'App\\Controller\\HomeController::shopDel'], ['id'], null, null, false, true, null]],
-        318 => [[['_route' => 'updateMember', '_controller' => 'App\\Controller\\HomeController::editMember'], ['id'], null, null, false, false, null]],
-        332 => [
-            [['_route' => 'deleteMember', '_controller' => 'App\\Controller\\HomeController::deleteMember'], ['id'], null, null, false, false, null],
+        192 => [[['_route' => 'product', '_controller' => 'App\\Controller\\HomeController::product'], ['id'], null, null, false, true, null]],
+        210 => [[['_route' => 'updateProduct', '_controller' => 'App\\Controller\\HomeController::edit'], ['id'], null, null, false, false, null]],
+        224 => [[['_route' => 'deleteProduct', '_controller' => 'App\\Controller\\HomeController::delete'], ['id'], null, null, false, false, null]],
+        267 => [[['_route' => 'updateAddress', '_controller' => 'App\\Controller\\HomeController::editAddress'], ['id'], null, null, false, false, null]],
+        282 => [[['_route' => 'updatePayment', '_controller' => 'App\\Controller\\HomeController::editPayment'], ['id'], null, null, false, false, null]],
+        307 => [[['_route' => 'deleteAddress', '_controller' => 'App\\Controller\\HomeController::deleteAddress'], ['id'], null, null, false, false, null]],
+        322 => [[['_route' => 'deletePayment', '_controller' => 'App\\Controller\\HomeController::deletePayment'], ['id'], null, null, false, false, null]],
+        359 => [[['_route' => 'addAddress', '_controller' => 'App\\Controller\\HomeController::addAddress'], ['id'], null, null, false, true, null]],
+        383 => [[['_route' => 'addPayment', '_controller' => 'App\\Controller\\HomeController::addPayment'], ['id'], null, null, false, true, null]],
+        414 => [[['_route' => 'updateMember', '_controller' => 'App\\Controller\\HomeController::editMember'], ['id'], null, null, false, false, null]],
+        428 => [[['_route' => 'deleteMember', '_controller' => 'App\\Controller\\HomeController::deleteMember'], ['id'], null, null, false, false, null]],
+        471 => [[['_route' => 'shoppingAdd', '_controller' => 'App\\Controller\\HomeController::shoppingAdd'], ['id'], null, null, false, true, null]],
+        491 => [
+            [['_route' => 'shopDel', '_controller' => 'App\\Controller\\HomeController::shopDel'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],
