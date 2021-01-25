@@ -39,20 +39,6 @@ class AppFixtures extends Fixture
 
             $manager->persist($product);
         }
-        $user = new User();
-        $user->setRoles(['ROLE_ADMIN'])
-            ->setEmail('mariedugoua@gmail.com')
-            ->setPassword('admin')
-            ->setFirstname('admin')
-            ->setLastname('admin')
-            ->setBirthdate($faker->dateTimeAD($max = 'now', $timezone = null));
-        $manager->persist($user);
-
-        $admin = new Admin();
-        $admin->setRoles(['ROLE_ADMIN'])
-            ->setEmail('mariedugoua@gmail.com')
-            ->setPassword('admin');
-        $manager->persist($admin);
 
         $manager->flush();
     }

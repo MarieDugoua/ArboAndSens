@@ -21,6 +21,7 @@ return [
     'products' => [[], ['_controller' => 'App\\Controller\\HomeController::products'], [], [['text', '/products']], [], []],
     'product' => [['id'], ['_controller' => 'App\\Controller\\HomeController::product'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/product']], [], []],
     'profile' => [[], ['_controller' => 'App\\Controller\\HomeController::profile'], [], [['text', '/profile']], [], []],
+    'addAddress' => [[], ['_controller' => 'App\\Controller\\HomeController::addAddress'], [], [['text', '/addAddress']], [], []],
     'admin' => [[], ['_controller' => 'App\\Controller\\HomeController::admin'], [], [['text', '/admin']], [], []],
     'shopping' => [[], ['_controller' => 'App\\Controller\\HomeController::shopping'], [], [['text', '/shopping']], [], []],
     'shoppingAdd' => [['id'], ['_controller' => 'App\\Controller\\HomeController::shoppingAdd'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/shopping/shoppingAdd']], [], []],

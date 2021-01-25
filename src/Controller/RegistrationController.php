@@ -2,7 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Address;
+use App\Entity\PaymentInfo;
 use App\Entity\User;
+use App\Form\AddressFormType;
+use App\Form\PaymentFormType;
 use App\Form\RegistrationFormType;
 use App\Security\LoginFormAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,7 +24,12 @@ class RegistrationController extends AbstractController
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, LoginFormAuthenticator $authenticator): Response
     {
         $user = new User();
+        $address = new Address();
+        $payment = new PaymentInfo();
+
         $form = $this->createForm(RegistrationFormType::class, $user);
+        $formAddress = $this->createForm(AddressFormType::class, $address);
+        $formPayment = $this->createForm(PaymentFormType::class, $payment);
 
         $form->handleRequest($request);
 
@@ -32,10 +41,15 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
-
+            $user->setRoles(['ROLE_USER']);
+            $address->setUser($this->getId($user));
+            $payment->setUser($this->getId($user));
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
+            $entityManager->persist($address);
+            $entityManager->persist($payment);
+
             $entityManager->flush();
             // do anything else you need here, like send an email
 
@@ -49,6 +63,8 @@ class RegistrationController extends AbstractController
 
         return $this->render('registration/index.html.twig', [
             'registrationForm' => $form->createView(),
+            'addressForm' => $formAddress->createView(),
+            'paymentForm' => $formPayment->createView(),
         ]);
 
     }

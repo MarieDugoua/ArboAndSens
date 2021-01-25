@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Address;
 use App\Entity\Product;
 use App\Entity\User;
 use App\Form\ProductFormType;
@@ -89,6 +90,35 @@ class HomeController extends AbstractController
         return $this->render('home/profile.html.twig', [
 
         ]);
+    }
+
+    /**
+     * @Route("/addAddress", name="addAddress")
+     * @param Address $address
+     */
+
+    public function addAddress(Request $request, EntityManagerInterface $entityManager)
+    {
+        $newAdress = new Address();
+        $form = $this->createForm(AddressFormType::class, $newAddress);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+
+            $entityManager->persist($newAdress);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Article added!');
+
+            return $this->redirectToRoute('home');
+        }
+
+        return $this->render('home/addProduct.html.twig', [
+            "form" => $form->createView()
+
+        ]);
+
     }
 
     /**

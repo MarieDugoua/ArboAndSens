@@ -18,6 +18,7 @@ return [
         '/equipe' => [[['_route' => 'equipe', '_controller' => 'App\\Controller\\HomeController::equipe'], null, null, null, false, false, null]],
         '/products' => [[['_route' => 'products', '_controller' => 'App\\Controller\\HomeController::products'], null, null, null, false, false, null]],
         '/profile' => [[['_route' => 'profile', '_controller' => 'App\\Controller\\HomeController::profile'], null, null, null, false, false, null]],
+        '/addAddress' => [[['_route' => 'addAddress', '_controller' => 'App\\Controller\\HomeController::addAddress'], null, null, null, false, false, null]],
         '/admin' => [[['_route' => 'admin', '_controller' => 'App\\Controller\\HomeController::admin'], null, null, null, false, false, null]],
         '/shopping' => [[['_route' => 'shopping', '_controller' => 'App\\Controller\\HomeController::shopping'], null, null, null, false, false, null]],
         '/addProduct' => [[['_route' => 'addProduct', '_controller' => 'App\\Controller\\HomeController::add'], null, null, null, false, false, null]],

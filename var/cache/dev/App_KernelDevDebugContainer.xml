@@ -370,6 +370,12 @@
     <service id="App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true">
       <tag name="doctrine.fixture.orm"/>
     </service>
+    <service id="App\Form\AddressFormType" class="App\Form\AddressFormType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\PaymentFormType" class="App\Form\PaymentFormType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\ProductFormType" class="App\Form\ProductFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -377,10 +383,6 @@
       <tag name="form.type"/>
     </service>
     <service id="App\Repository\AddressRepository" class="App\Repository\AddressRepository" autowire="true" autoconfigure="true">
-      <tag name="doctrine.repository_service"/>
-      <argument type="service" id="doctrine"/>
-    </service>
-    <service id="App\Repository\AdminRepository" class="App\Repository\AdminRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -898,6 +900,8 @@
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
       </argument>
       <argument type="collection">
+        <argument>App\Form\AddressFormType</argument>
+        <argument>App\Form\PaymentFormType</argument>
         <argument>App\Form\ProductFormType</argument>
         <argument>App\Form\RegistrationFormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
@@ -1259,7 +1263,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.aYjSHyg"/>
+      <argument type="service" id=".service_locator.XJABu8_"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -3608,7 +3612,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.9oTsX46"/>
+      <argument type="service" id=".service_locator.rqUs53w"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5525,14 +5529,16 @@
     <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AddressFormType" class="App\Form\AddressFormType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\AddressFormType" class="App\Form\AddressFormType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\PaymentFormType" class="App\Form\PaymentFormType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\PaymentFormType" class="App\Form\PaymentFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ProductFormType" class="App\Form\ProductFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ProductFormType" class="App\Form\ProductFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\AddressRepository" class="App\Repository\AddressRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\AddressRepository" class="App\Repository\AddressRepository" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\AdminRepository" class="App\Repository\AdminRepository" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\AdminRepository" class="App\Repository\AdminRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\FeedBackRepository" class="App\Repository\FeedBackRepository" autowire="true" abstract="true"/>
@@ -5818,6 +5824,12 @@
         <argument key="product" type="service" id=".errored..service_locator.iyEwlLH.App\Entity\Product"/>
       </argument>
     </service>
+    <service id=".service_locator.l2QwsaZ" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
     <service id=".service_locator.BsYPr5B" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5836,12 +5848,6 @@
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="session" type="service" id="session"/>
-      </argument>
-    </service>
-    <service id=".service_locator.l2QwsaZ" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="entityManager" type="service" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
     <service id=".service_locator.0n6uXa." class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -5884,10 +5890,11 @@
         <argument key="manager" type="service" id=".errored..service_locator.fV_Pg_z.Doctrine\Persistence\ObjectManager"/>
       </argument>
     </service>
-    <service id=".service_locator.M2uGroL" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.UkYg07C" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\HomeController::add" type="service" id=".service_locator.l2QwsaZ"/>
+        <argument key="App\Controller\HomeController::addAddress" type="service" id=".service_locator.l2QwsaZ"/>
         <argument key="App\Controller\HomeController::admin" type="service" id=".service_locator.BsYPr5B"/>
         <argument key="App\Controller\HomeController::delete" type="service" id=".service_locator.iyEwlLH"/>
         <argument key="App\Controller\HomeController::deleteMember" type="service" id=".service_locator.ch4Jgvl"/>
@@ -5909,6 +5916,7 @@
         <argument key="kernel::registerContainerConfiguration" type="service" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::terminate" type="service" id=".service_locator.KfwZsne"/>
         <argument key="App\Controller\HomeController:add" type="service" id=".service_locator.l2QwsaZ"/>
+        <argument key="App\Controller\HomeController:addAddress" type="service" id=".service_locator.l2QwsaZ"/>
         <argument key="App\Controller\HomeController:admin" type="service" id=".service_locator.BsYPr5B"/>
         <argument key="App\Controller\HomeController:delete" type="service" id=".service_locator.iyEwlLH"/>
         <argument key="App\Controller\HomeController:deleteMember" type="service" id=".service_locator.ch4Jgvl"/>
@@ -5987,9 +5995,11 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.aYjSHyg" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.XJABu8_" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Form\AddressFormType" type="service" id="App\Form\AddressFormType"/>
+        <argument key="App\Form\PaymentFormType" type="service" id="App\Form\PaymentFormType"/>
         <argument key="App\Form\ProductFormType" type="service" id="App\Form\ProductFormType"/>
         <argument key="App\Form\RegistrationFormType" type="service" id="App\Form\RegistrationFormType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
@@ -6011,11 +6021,10 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.9oTsX46" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.rqUs53w" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\AddressRepository" type="service" id="App\Repository\AddressRepository"/>
-        <argument key="App\Repository\AdminRepository" type="service" id="App\Repository\AdminRepository"/>
         <argument key="App\Repository\CategoryRepository" type="service" id="App\Repository\CategoryRepository"/>
         <argument key="App\Repository\FeedBackRepository" type="service" id="App\Repository\FeedBackRepository"/>
         <argument key="App\Repository\ImageRepository" type="service" id="App\Repository\ImageRepository"/>
@@ -6405,12 +6414,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.M2uGroL"/>
+      <argument type="service" id=".service_locator.UkYg07C"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.M2uGroL"/>
+      <argument type="service" id=".service_locator.UkYg07C"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
       <argument type="collection"/>
@@ -6836,7 +6845,7 @@
     <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.Kbr2i2X" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.M2uGroL"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.UkYg07C"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

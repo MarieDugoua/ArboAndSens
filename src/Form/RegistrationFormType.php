@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
@@ -19,15 +20,19 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('firstName')
-            ->add('lastName')
+            ->add('firstName', TextType::class, [
+                "attr" => ["class" => "form-control"]])
+            ->add('lastName', TextType::class, [
+                "attr" => ["class" => "form-control"]])
             ->add('birthDate', DateType::class, [
                 'widget' => 'single_text',
                 // this is actually the default format for single_text
                 'format' => 'yyyy-MM-dd',
             ])
-            ->add('email')
+            ->add('email', TextType::class, [
+                "attr" => ["class" => "form-control"]])
             ->add('plainPassword', PasswordType::class, [
+                "attr" => ["class" => "form-control"],
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
