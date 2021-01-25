@@ -53,9 +53,17 @@ class HomeController extends AbstractController
      * @Route("/products", name="products")
      * @param ProductRepository $productRepository
      */
-    public function products(ProductRepository $productRepository)
+    public function products(Request $request, PaginatorInterface $paginator)
     {
-        $product = $productRepository->findAll();
+        // Méthode findBy qui permet de récupérer les données avec des critères de filtre et de tri
+        $donnees = $this->getDoctrine()->getRepository(Product::class)->findBy([],['name' => 'desc']);
+
+        $product = $paginator->paginate(
+            $donnees, // Requête contenant les données à paginer
+            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+            9 // Nombre de résultats par page
+        );
+
         return $this->render('home/products.html.twig', [
             'products' => $product,
         ]);
