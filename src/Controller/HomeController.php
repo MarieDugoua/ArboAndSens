@@ -217,7 +217,7 @@ class HomeController extends AbstractController
         $del->remove($product);
         $del->flush();
 
-        return $this->redirectToRoute('home');
+        return $this->redirectToRoute('products');
     }
 }
 
