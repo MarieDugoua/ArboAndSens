@@ -43,6 +43,7 @@ class HomeController extends AbstractController
         return $this->render('home/equipe.html.twig', [
         ]);
     }
+
     /**
      * @Route("/products", name="products")
      * @param ProductRepository $productRepository
@@ -73,6 +74,16 @@ class HomeController extends AbstractController
     public function profile()
     {
         return $this->render('home/profile.html.twig', [
+
+        ]);
+    }
+
+    /**
+     * @Route("/admin", name="admin")
+     */
+    public function admin()
+    {
+        return $this->render('home/admin.html.twig', [
 
         ]);
     }

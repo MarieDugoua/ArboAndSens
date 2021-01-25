@@ -26,6 +26,11 @@
                         </td>
                     </tr>
                 {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="4" class="text-center">Votre panier est vide </td>
+                    </tr>
+                {% endif %}
                 </tbody>
                 <tfoot>
                 <tr>
@@ -36,9 +41,6 @@
                     </td>
                 </tr>
                 </tfoot>
-            {% else %}
-                <p class="text-center"> Votre panier est vide </p>
-            {% endif %}
         </table>
     </div>
 {% endblock %}
