@@ -4,32 +4,20 @@
     {% set id = app.request.get('id') %}
     {% set titleType = app.request.get('titleType') %}
     <div class="container" style="justify-content: center">
-        <div class="d-flex flex-row justify-content-around w-100">
-            <div class="w-25">
-                <h3>Information</h3>
-                <p>Nom : {{ app.user.lastName }}</p>
-                <p>Prénom : {{ app.user.firstName }}</p>
-                <p>E-mail : {{ app.user.email }}</p>
-                <p>Date de naissance : {{ app.user.birthDate|date('Y-m-d') }}</p>
-            </div>
-            <div class="w-25">
-                <h3>Adresses</h3>
-                {% for address in app.user.addresses %}
-                    <p>Nom : {{ address.title }}</p>
-                    <p>N° et rue : {{ address.address }}</p>
-                    <p>Code postale : {{ address.zipCode }} Ville : {{ address.city }}</p>
-                {% endfor %}
-            </div>
-            <div class="w-25">
-                <h3>carte de payment</h3>
-                {% for info in app.user.paymentInfos %}
-                <p>Nom : {{ info.title }}</p>
-                <p>N° de carte : {{ info.cardNumber }}</p>
-                <p>date d'éxpiration: {{ info.expireDate|date('Y-m-d') }}</p>
-                {% endfor %}
+        <div class="d-flex flex-column w-100 ">
+            <h3 class="text-center m-4">Information</h3>
+            <div class="d-flex flex-row w-100">
+                <div class="w-50">
+                    <p>Nom : {{ app.user.lastName }}</p>
+                    <p>Prénom : {{ app.user.firstName }}</p>
+                </div>
+                <div class="w-50">
+                    <p>E-mail : {{ app.user.email }}</p>
+                    <p>Date de naissance : {{ app.user.birthDate|date('Y-m-d') }}</p>
+                </div>
             </div>
         </div>
-        <div class="h-50 overflow-scroll">
+        <div class="h-50 overflow-scroll mt-3">
             <table class="table">
                 <thead>
                 <tr>
@@ -37,21 +25,26 @@
                     <th>Prénom</th>
                     <th>Email</th>
                     <th>Date de Naissance</th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
-                {% for user in app.user %}
+                {% for user in users %}
+                    {% if user.id != 1  %}
                     <tr>
                         <td>{{ user.lastName }}</td>
                         <td>{{ user.firstName }}</td>
                         <td>{{ user.email }}</td>
                         <td>{{ user.birthDate|date('Y-m-d') }}</td>
+                        <td><a href="/admin/{{user.id}}/update" class="btn btn-outline-primary mx-auto">Modifier</a></td>
+                        <td><a href="/admin/{{user.id}}/delete" class="btn btn-outline-danger mx-auto">Supprimer</a></td>
                     </tr>
+                    {% endif %}
                 {% endfor %}
                 </tbody>
             </table>
         </div>
-
     </div>
     <div class="footer fixed-bottom">
 

@@ -5812,6 +5812,13 @@
         <argument key="product" type="service" id=".errored..service_locator.iyEwlLH.App\Entity\Product"/>
       </argument>
     </service>
+    <service id=".service_locator.BsYPr5B" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="historyRepository" type="service" id="App\Repository\OrderHistoryRepository"/>
+        <argument key="userRepository" type="service" id="App\Repository\UserRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator..NpyqXZ" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5838,6 +5845,19 @@
         <argument key="product" type="service" id=".errored..service_locator.0n6uXa..App\Entity\Product"/>
       </argument>
     </service>
+    <service id=".service_locator.PaJQGxZ" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service" id="doctrine.orm.default_entity_manager"/>
+        <argument key="user" type="service" id=".errored..service_locator.PaJQGxZ.App\Entity\User"/>
+      </argument>
+    </service>
+    <service id=".service_locator.ch4Jgvl" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="user" type="service" id=".errored..service_locator.ch4Jgvl.App\Entity\User"/>
+      </argument>
+    </service>
     <service id=".service_locator.YT8XVZ7" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5858,12 +5878,15 @@
         <argument key="manager" type="service" id=".errored..service_locator.fV_Pg_z.Doctrine\Persistence\ObjectManager"/>
       </argument>
     </service>
-    <service id=".service_locator.ZV.aFjz" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.Bwy5M3c" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\HomeController::add" type="service" id=".service_locator.l2QwsaZ"/>
+        <argument key="App\Controller\HomeController::admin" type="service" id=".service_locator.BsYPr5B"/>
         <argument key="App\Controller\HomeController::delete" type="service" id=".service_locator.iyEwlLH"/>
+        <argument key="App\Controller\HomeController::deleteMember" type="service" id=".service_locator.ch4Jgvl"/>
         <argument key="App\Controller\HomeController::edit" type="service" id=".service_locator.0n6uXa."/>
+        <argument key="App\Controller\HomeController::editMember" type="service" id=".service_locator.PaJQGxZ"/>
         <argument key="App\Controller\HomeController::index" type="service" id=".service_locator.JeTwYn4"/>
         <argument key="App\Controller\HomeController::product" type="service" id=".service_locator.iyEwlLH"/>
         <argument key="App\Controller\HomeController::products" type="service" id=".service_locator.JeTwYn4"/>
@@ -5880,8 +5903,11 @@
         <argument key="kernel::registerContainerConfiguration" type="service" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::terminate" type="service" id=".service_locator.KfwZsne"/>
         <argument key="App\Controller\HomeController:add" type="service" id=".service_locator.l2QwsaZ"/>
+        <argument key="App\Controller\HomeController:admin" type="service" id=".service_locator.BsYPr5B"/>
         <argument key="App\Controller\HomeController:delete" type="service" id=".service_locator.iyEwlLH"/>
+        <argument key="App\Controller\HomeController:deleteMember" type="service" id=".service_locator.ch4Jgvl"/>
         <argument key="App\Controller\HomeController:edit" type="service" id=".service_locator.0n6uXa."/>
+        <argument key="App\Controller\HomeController:editMember" type="service" id=".service_locator.PaJQGxZ"/>
         <argument key="App\Controller\HomeController:index" type="service" id=".service_locator.JeTwYn4"/>
         <argument key="App\Controller\HomeController:product" type="service" id=".service_locator.iyEwlLH"/>
         <argument key="App\Controller\HomeController:products" type="service" id=".service_locator.JeTwYn4"/>
@@ -6373,12 +6399,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.ZV.aFjz"/>
+      <argument type="service" id=".service_locator.Bwy5M3c"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.ZV.aFjz"/>
+      <argument type="service" id=".service_locator.Bwy5M3c"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
       <argument type="collection"/>
@@ -6392,6 +6418,8 @@
     <service id=".errored..service_locator.KfbR3DY.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
     <service id=".errored..service_locator.iyEwlLH.App\Entity\Product" class="App\Entity\Product"/>
     <service id=".errored..service_locator.0n6uXa..App\Entity\Product" class="App\Entity\Product"/>
+    <service id=".errored..service_locator.PaJQGxZ.App\Entity\User" class="App\Entity\User"/>
+    <service id=".errored..service_locator.ch4Jgvl.App\Entity\User" class="App\Entity\User"/>
     <service id=".errored..service_locator.fV_Pg_z.Doctrine\Persistence\ObjectManager" class="Doctrine\Persistence\ObjectManager"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <tag name="container.no_preload"/>
@@ -6802,7 +6830,7 @@
     <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.Kbr2i2X" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.ZV.aFjz"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.Bwy5M3c"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

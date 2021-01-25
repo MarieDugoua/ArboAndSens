@@ -3,9 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Product;
+use App\Entity\User;
 use App\Form\ProductFormType;
+use App\Form\RegistrationFormType;
+use App\Repository\OrderHistoryRepository;
 use App\Repository\ProductRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -81,10 +86,15 @@ class HomeController extends AbstractController
     /**
      * @Route("/admin", name="admin")
      */
-    public function admin()
+    public function admin(UserRepository $userRepository, OrderHistoryRepository $historyRepository)
     {
-        return $this->render('home/admin.html.twig', [
 
+        $users = $userRepository->findAll();
+        $orders = $userRepository->findAll();
+
+        return $this->render('home/admin.html.twig', [
+            'users' => $users,
+            'orders' => $orders,
         ]);
     }
 
@@ -219,5 +229,44 @@ class HomeController extends AbstractController
 
         return $this->redirectToRoute('products');
     }
-}
+    /**
+     * @Route("/admin/{id}/update", name="updateMember")
+     * @param User $user
+     */
 
+    public function editMember(User $user, Request $request, EntityManagerInterface $entityManager)
+    {
+        $form = $this->createForm(RegistrationFormType::class, $user);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+
+            $offer = $form->getData();
+
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Article Updated!');
+
+            return $this->redirectToRoute('admin');
+        }
+
+        return $this->render('home/updateMember.html.twig', [
+            "form" => $form->createView()
+
+        ]);
+    }
+
+    /**
+     * @Route("/admin/{id}/delete", name="deleteMember")
+     * @param Product $product
+     */
+    public function deleteMember(User $user ){
+        $del = $this->getDoctrine()->getManager();
+        $del->remove($user);
+        $del->flush();
+
+        return $this->redirectToRoute('admin');
+    }
+}

@@ -28,6 +28,8 @@ return [
     'addProduct' => [[], ['_controller' => 'App\\Controller\\HomeController::add'], [], [['text', '/addProduct']], [], []],
     'updateProduct' => [['id'], ['_controller' => 'App\\Controller\\HomeController::edit'], [], [['text', '/update'], ['variable', '/', '[^/]++', 'id', true], ['text', '/product']], [], []],
     'deleteProduct' => [['id'], ['_controller' => 'App\\Controller\\HomeController::delete'], [], [['text', '/delete'], ['variable', '/', '[^/]++', 'id', true], ['text', '/product']], [], []],
+    'updateMember' => [['id'], ['_controller' => 'App\\Controller\\HomeController::editMember'], [], [['text', '/update'], ['variable', '/', '[^/]++', 'id', true], ['text', '/admin']], [], []],
+    'deleteMember' => [['id'], ['_controller' => 'App\\Controller\\HomeController::deleteMember'], [], [['text', '/delete'], ['variable', '/', '[^/]++', 'id', true], ['text', '/admin']], [], []],
     'app_register' => [[], ['_controller' => 'App\\Controller\\RegistrationController::register'], [], [['text', '/registration']], [], []],
     'security' => [[], ['_controller' => 'App\\Controller\\SecurityController::index'], [], [['text', '/security']], [], []],
     'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], []],

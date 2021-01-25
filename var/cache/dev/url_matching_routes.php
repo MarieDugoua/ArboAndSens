@@ -58,6 +58,10 @@ return [
                     .'|pingAdd/([^/]++)(*:264)'
                     .'|Del/([^/]++)(*:284)'
                 .')'
+                .'|/admin/([^/]++)/(?'
+                    .'|update(*:318)'
+                    .'|delete(*:332)'
+                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -72,8 +76,10 @@ return [
         207 => [[['_route' => 'updateProduct', '_controller' => 'App\\Controller\\HomeController::edit'], ['id'], null, null, false, false, null]],
         221 => [[['_route' => 'deleteProduct', '_controller' => 'App\\Controller\\HomeController::delete'], ['id'], null, null, false, false, null]],
         264 => [[['_route' => 'shoppingAdd', '_controller' => 'App\\Controller\\HomeController::shoppingAdd'], ['id'], null, null, false, true, null]],
-        284 => [
-            [['_route' => 'shopDel', '_controller' => 'App\\Controller\\HomeController::shopDel'], ['id'], null, null, false, true, null],
+        284 => [[['_route' => 'shopDel', '_controller' => 'App\\Controller\\HomeController::shopDel'], ['id'], null, null, false, true, null]],
+        318 => [[['_route' => 'updateMember', '_controller' => 'App\\Controller\\HomeController::editMember'], ['id'], null, null, false, false, null]],
+        332 => [
+            [['_route' => 'deleteMember', '_controller' => 'App\\Controller\\HomeController::deleteMember'], ['id'], null, null, false, false, null],
             [null, null, null, null, false, false, 0],
         ],
     ],
