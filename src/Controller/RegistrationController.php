@@ -42,11 +42,14 @@ class RegistrationController extends AbstractController
                 )
             );
             $user->setRoles(['ROLE_USER']);
-            $address->setUser($this->getId($user));
-            $payment->setUser($this->getId($user));
+
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
+
+            $address->setUser($user->getId());
+            $payment->setUser($user->getId());
+
             $entityManager->persist($address);
             $entityManager->persist($payment);
 
