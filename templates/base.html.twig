@@ -41,10 +41,10 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Présentation</a>
+                    <a class="nav-link active" href="{{ path('presentation') }}">Présentation</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Notre équipe</a>
+                    <a class="nav-link" href="{{ path('team') }}">Notre équipe</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ path('products') }}">Produits</a>
@@ -54,11 +54,9 @@
                 </li>
             </ul>
             <div class="navbar-item-custom">
-                {% if is_granted('IS_AUTHENTICATED_FULLY') and is_granted('ROLE_USER') %}
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                     <a href="{{ path('account') }}">Mon compte <small> ({{ app.user.firstname }})</small></a> | <a href="{{ path('app_logout') }}">Log out</a>
-                {% elseif is_granted('IS_AUTHENTICATED_FULLY') and is_granted('ROLE_ADMIN') %}
-                    <a href="{{ path('admin') }}">Admin <small> ({{ app.user.firstname }})</small></a> | <a href="{{ path('app_logout') }}">Log out</a>
-                {% else %}
+               {% else %}
                     <a href="{{ path('app_login') }}">Sign in</a> | <a href="{{ path('register') }}">Register</a>
                 {% endif %}
             </div>
