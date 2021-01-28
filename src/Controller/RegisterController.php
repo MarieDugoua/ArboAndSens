@@ -35,9 +35,11 @@ class RegisterController extends AbstractController
 
             $password = $encoder->encodePassword($user, $user->getPassword());
             $user->setPassword($password);
+            $user->setRoles(['ROLE_USER']);
 
             $this->entityManager->persist($user);
             $this->entityManager->flush();
+            return $this->redirectToRoute('account');
 
         }
 

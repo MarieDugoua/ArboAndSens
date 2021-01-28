@@ -59,6 +59,7 @@
     <script type="text/javascript">
         var stripe = Stripe("pk_test_51IEILoAtFxgQJSRShGy2ShABWCFftSo368aaiM7sHXzDpFIgaOYV9RBi07YbvhuYn6kKURqXgX99d9SWGhtEvPFP00FfU0DCFh");
         var checkoutButton = document.getElementById("checkout-button");
+
         checkoutButton.addEventListener("click", function () {
             fetch("/order/createSession", {
                 method: "POST",

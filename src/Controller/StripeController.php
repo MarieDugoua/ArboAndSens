@@ -23,8 +23,6 @@ class StripeController extends AbstractController
         foreach ($cart->getFull() as $product)
         {
             $productForStripe[] = [
-                'payment_method_types' => ['card'],
-                'line_items' => [
                     'price_data' => [
                         'currency' => 'eur',
                         'unit_amount' => $product['product']->getPrice(),
@@ -34,7 +32,7 @@ class StripeController extends AbstractController
                         ],
                     ],
                     'quantity' => $product['quantity'],
-                ]];
+                ];
         }
 
         Stripe::setApiKey('sk_test_51IEILoAtFxgQJSRSLsuSscYfYR4jWs3vWZWsxEuz2GqPBUNujeGhyHwjl5ekToyKP6gCcTiiQpt49mYbaxc1kook00JQee3sxC');
@@ -49,7 +47,6 @@ class StripeController extends AbstractController
             'cancel_url' => $YOUR_DOMAIN . '/cancel.html',
         ]);
 
-        $response = new JsonResponse(['id' => $checkout_session->id]);
-        return $response;
+        return new JsonResponse(['id' => $checkout_session->id]);
     }
 }

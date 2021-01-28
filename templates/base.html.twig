@@ -54,8 +54,10 @@
                 </li>
             </ul>
             <div class="navbar-item-custom">
-                {% if app.user %}
+                {% if is_granted('IS_AUTHENTICATED_FULLY') and is_granted('ROLE_USER') %}
                     <a href="{{ path('account') }}">Mon compte <small> ({{ app.user.firstname }})</small></a> | <a href="{{ path('app_logout') }}">Log out</a>
+                {% elseif is_granted('IS_AUTHENTICATED_FULLY') and is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('admin') }}">Admin <small> ({{ app.user.firstname }})</small></a> | <a href="{{ path('app_logout') }}">Log out</a>
                 {% else %}
                     <a href="{{ path('app_login') }}">Sign in</a> | <a href="{{ path('register') }}">Register</a>
                 {% endif %}
